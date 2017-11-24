@@ -1,0 +1,23 @@
+{
+  "name": "the-novelist",
+  "productName": "The Novelist",
+  "version": "0.0.1",
+  "description": "A simple Software for writers",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "build": {
+    "appId": "the.novelist",
+    "productName": "The Novelist"
+  },
+  "author": "Dennis Kirschstein",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "electron": "^1.7.9",
+    "electron-builder": "^19.41.0",
+    "electron-packager": "^9.1.0"
+  }
+}

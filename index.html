@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Novelist</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+    </head>
+    <body>
+        <section id="sidebar">
+            <div class="inner">
+                <nav>
+                    <ul>
+                        <li><input type="button" id="delete-file" value="Delete file" style="display: none; visibility: hidden;"/></li>
+                        <li><input type="button" id="save-changes" value="Save"/></li>
+                        <li><input type="button" value="Save as" id="create-new-file"/></li>
+                        <li><input type="button" value="Open" id="select-file"/></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+        <div id="wrapper">
+
+            <!-- Files Dialog -->
+            <section id="files-dialog">
+                <div style="text-align:center;">
+                    <input type="text" placeholder="Please select a file" id="actual-file" disabled="disabled" style="display: none; visibility: hidden;"/>
+                </div>
+            </br>
+            </section>
+
+            <!-- Editor -->
+            <section id="editor">
+                <textarea id="content-editor" rows="20" style="width: 99%"></textarea><br><br>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer" class="wrapper style1-alt">
+            <div class="inner">
+                <ul class="menu">
+                    <li>&copy; Dennis Kirschstein. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <script src=./js/fileDialogSaveLoadDelete.js></script>
+        <script>window.$ = window.jQuery = require('./assets/js/jquery.min.js');</script>
+        <script src=".assets/js/jquery.scrollex.min.js"></script>
+        <script src=".assets/js/jquery.scrolly.min.js"></script>
+        <script src=".assets/js/skel.min.js"></script>
+        <script src=".assets/js/util.js"></script>
+        <script src=".assets/js/main.js"></script>
+    </body>
+</html>
