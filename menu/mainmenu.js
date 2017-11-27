@@ -84,21 +84,21 @@ const template = [
     ]
   },
   {
-    role: 'window',
+    role: 'window', label: i18n.__('Window'),
     submenu: [
       {
-        role: 'minimize'
+        role: 'minimize', label: i18n.__('Minimize'),
       },
       {
-        role: 'close'
+        role: 'close', label: i18n.__('Close'),
       }
     ]
   },
   {
-    role: 'help',
+    role: 'help', label: i18n.__('Help'),
     submenu: [
       {
-        label: 'Learn More',
+        label: i18n.__('Learn more'),
         click () { require('electron').shell.openExternal('http://electron.atom.io') }
       }
     ]
@@ -111,26 +111,26 @@ if (process.platform === 'darwin') {
     label: name,
     submenu: [
       {
-        role: 'about'
+        role: 'about', label: i18n.__('About')
       },
       {
         type: 'separator'
       },
       {
-        role: 'services',
+        role: 'services', label: i18n.__('Services'),
         submenu: []
       },
       {
         type: 'separator'
       },
       {
-        role: 'hide'
+        role: 'hide', label: i18n.__('Hide'),
       },
       {
-        role: 'hideothers'
+        role: 'hideothers', label: i18n.__('Hide others'),
       },
       {
-        role: 'unhide'
+        role: 'unhide', label: i18n.__('Unhide'),
       }
     ]
   })
@@ -140,13 +140,13 @@ if (process.platform === 'darwin') {
       type: 'separator'
     },
     {
-      label: 'Speech',
+      label: i18n.__('Speech'),
       submenu: [
         {
-          role: 'startspeaking'
+          role: 'startspeaking', label: i18n.__('Start Speaking'),
         },
         {
-          role: 'stopspeaking'
+          role: 'stopspeaking', label: i18n.__('Stop Speaking'),
         }
       ]
     }
@@ -154,24 +154,24 @@ if (process.platform === 'darwin') {
   // Window menu.
   template[3].submenu = [
     {
-      label: 'Close',
+      label: i18n.__('Close'),
       accelerator: 'CmdOrCtrl+W',
       role: 'close'
     },
     {
-      label: 'Minimize',
+      label: i18n.__('Minimize'),
       accelerator: 'CmdOrCtrl+M',
       role: 'minimize'
     },
     {
-      label: 'Zoom',
+      label: i18n.__('Zoom'),
       role: 'zoom'
     },
     {
       type: 'separator'
     },
     {
-      label: 'Bring All to Front',
+      label: i18n.__('Bring all to front'),
       role: 'front'
     }
   ]

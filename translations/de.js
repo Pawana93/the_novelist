@@ -32,5 +32,8 @@
     "Bring all to front": "Bringe alle nach vorne",
     "Reload": "Neu laden",
     "Toggle Developer Tools": "Zeige Entwicklerkonsole",
-    "Reset Zoom": "Zoom zurücksetzen"
+    "Reset Zoom": "Zoom zurücksetzen",
+    "Save": "Speichern",
+    "Save as": "Speichern unter",
+    "Open": "Öffnen"
    }

@@ -5,19 +5,43 @@
   "description": "A simple Software for writers",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
+    "postinstall": "install-app-deps",
+    "start": "npm install && electron .",
     "pack": "build --dir",
     "dist": "build"
   },
   "build": {
     "appId": "the.novelist",
-    "productName": "The Novelist"
+    "productName": "The Novelist",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
+    }
   },
-  "author": "Dennis Kirschstein",
+  "author": "Dennis Kirschstein <dennis@dennis-kirschstein.com>",
   "license": "GPL-3.0",
   "devDependencies": {
     "electron": "^1.7.9",
-    "electron-builder": "^19.41.0",
-    "electron-packager": "^9.1.0"
+    "electron-builder": "^19.46.9"
   }
 }

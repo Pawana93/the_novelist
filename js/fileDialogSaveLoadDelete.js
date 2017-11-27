@@ -19,7 +19,7 @@ document.getElementById('save-changes').addEventListener('click',function(){
     if(actualFilePath){
         saveChanges(actualFilePath,document.getElementById('content-editor').value);
     }else{
-        alert("Please select a file first");
+        alert("Please save the file with 'Save as' first");
     }
 },false);
 

@@ -28,5 +28,11 @@
     "Unhide": "Unhide",
     "Quit": "Quit",
     "Zoom": "Zoom",
-    "Bring all to front": "Bring all to front"
+    "Bring all to front": "Bring all to front",
+    "Reload": "Reload",
+    "Toggle Developer Tools": "Toggle Developer Tools",
+    "Reset Zoom": "Reset Zoom",
+    "Save": "Save",
+    "Save as": "Save as",
+    "Open": "Open"
    }
