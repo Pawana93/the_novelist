@@ -9,3 +9,7 @@ As I am right now, it is very difficult to work on something, cause I have to st
 In the future I will improve this Readme file and add everything you have to know. So please stay tuned and support "The Novelist"
 
 Right now the core Feature - the Text Editor - is now online. You can either make the Installer Project yourself or you wait to get the Link to the download for the Installer. 
+
+
+
+This project is created based on the Hyperspace CSS Template. If you like it: Please consider to visit them on https://html5up.net/hyperspace 
