@@ -34,5 +34,9 @@
     "Reset Zoom": "Reset Zoom",
     "Save": "Save",
     "Save as": "Save as",
-    "Open": "Open"
+    "Open": "Open",
+    "Welcome": "Welcome",
+    "Editor": "Editor",
+    "Welcome Text": "Welcome to 'The Novelist'. This is the main page for the app.",
+    "Welcome Header": "Welcome to 'The Novelist'"
    }

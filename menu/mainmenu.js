@@ -57,13 +57,6 @@ const template = [
         }
       },
       {
-        label: i18n.__('Toggle Developer Tools'),
-        accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
-        click (item, focusedWindow) {
-          if (focusedWindow) focusedWindow.webContents.toggleDevTools()
-        }
-      },
-      {
         type: 'separator'
       },
       {
@@ -74,12 +67,6 @@ const template = [
       },
       {
         role: 'zoomout', label: i18n.__('Zoom out')
-      },
-      {
-        type: 'separator'
-      },
-      {
-        role: 'togglefullscreen', label: i18n.__('Toggle fullscreen')
       }
     ]
   },
@@ -88,9 +75,6 @@ const template = [
     submenu: [
       {
         role: 'minimize', label: i18n.__('Minimize'),
-      },
-      {
-        role: 'close', label: i18n.__('Close'),
       }
     ]
   },
@@ -99,7 +83,7 @@ const template = [
     submenu: [
       {
         label: i18n.__('Learn more'),
-        click () { require('electron').shell.openExternal('http://electron.atom.io') }
+        click () { require('electron').shell.openExternal('https://github.com/Pawana93/the_novelist') }
       }
     ]
   }

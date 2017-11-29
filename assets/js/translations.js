@@ -1,20 +1,26 @@
 window.localization = window.localization || {},
 function(n) {
-     localization.translate = {
+    localization.translate = {
 
-     menu: function() {
-         $('#save-changes').text(i18n.__('Save'));
-         $('#create-new-file').text(i18n.__('Save as'));
-         $('#select-file').text(i18n.__('Open'));
-    },
+        menu: function() {
+            $('#welcome-menu').text(i18n.__('Welcome'));
+            $('#editor-menu').text(i18n.__('Editor'));
+        },
 
-   init: function() {
-         this.button();
-   }
- };
+        welcome: function() {
+            $('#welcome .inner h1').text(i18n.__('Welcome Header'));
+            $('#welcome .inner p').text(i18n.__('Welcome Text'));
+        },
 
- n(function() {
-     localization.translate.init();
- })
+        init: function() {
+            this.welcome();
+            this.menu();
+            this.editorFrame();
+        }
+    };
+
+n(function() {
+    localization.translate.init();
+});
 
 }(jQuery);

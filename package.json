@@ -6,13 +6,14 @@
   "main": "main.js",
   "scripts": {
     "postinstall": "install-app-deps",
-    "start": "npm install && electron .",
+    "start": "electron .",
     "pack": "build --dir",
     "dist": "build"
   },
   "build": {
     "appId": "the.novelist",
     "productName": "The Novelist",
+    "category": "Writing",
     "dmg": {
       "contents": [
         {
@@ -34,7 +35,7 @@
       ]
     },
     "win": {
-      "target": "NSIS",
+      "target": "nsis",
       "icon": "build/icon.ico"
     }
   },

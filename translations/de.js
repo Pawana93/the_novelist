@@ -35,5 +35,9 @@
     "Reset Zoom": "Zoom zurücksetzen",
     "Save": "Speichern",
     "Save as": "Speichern unter",
-    "Open": "Öffnen"
+    "Open": "Öffnen",
+    "Welcome": "Wilkommen",
+    "Editor": "Texteditor",
+    "Welcome Text": "Wilkommen bei 'The Novelist'. Dies ist die Startseite der App.",
+    "Welcome Header": "Wilkommen bei 'The Novelist'"
    }
