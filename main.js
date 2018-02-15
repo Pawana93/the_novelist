@@ -10,11 +10,7 @@ let aboutWindow;
 
 app.on('ready', function() {
     mainWindow = new BrowserWindow({titleBarStyle: 'hidden', show: false, width: 1281, height: 800, minWidth: 1281, minHeight: 800, icon: __dirname + '/assets/icons/win/icon.ico'});
-    mainWindow.loadURL(url.format({
-        pathname: path.join(__dirname, 'index.html'),
-        protocol: 'file:',
-        slashes: true
-    }));   
+    mainWindow.loadURL('file://${__dirname}/dist/index.html');   
     
     mainWindow.webContents.on('did-finish-load', function() {
         mainWindow.show();
