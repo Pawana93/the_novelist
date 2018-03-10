@@ -1,10 +1,9 @@
-#projectImage {
-    width: 60px;
-    height: 60px;
+.projectView {
+    width: 50%;
+    float: right;
 }
 
-textarea {
-    width: 100%; 
-    height: 40em; 
-    box-sizing: content-box;
+.newsView {
+    width: 50%;
+    float: left;
 }
