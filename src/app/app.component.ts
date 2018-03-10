@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Project } from './shared/project';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'TheNovelist';
+  listOn = true;
+  detailsOn = false;
 
+  project: Project;
+
+  showList() {
+    this.listOn = true;
+    this.detailsOn = false;
+  }
+
+  showDetails(project: Project) {
+    this.project = project;
+    this.listOn = false;
+    this.detailsOn = true;
+  }
 }

@@ -1,4 +1,2 @@
-<div style="align-items: vertical">
-  <img id="projectImage" src="{{project.image}}">
-  <h1 model="project">Projekt Name</h1>
-</div>
+<app-projects-list *ngIf="listOn" (showDetailsEvent)="showDetails($event)"></app-projects-list>
+<app-projects-details *ngIf="detailsOn" (showListEvent)="showList()" [project]="project"></app-projects-details>
