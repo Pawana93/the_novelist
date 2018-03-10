@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectsDetailsComponent } from './projects-details/projects-details.component';
 import { ProjectsListItemComponent } from './projects-list-item/projects-list-item.component';
+import { MainScreenComponent } from './main-screen/main-screen.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { ProjectsListItemComponent } from './projects-list-item/projects-list-it
     AppComponent,
     ProjectsListComponent,
     ProjectsDetailsComponent,
-    ProjectsListItemComponent
+    ProjectsListItemComponent,
+    MainScreenComponent
   ],
   imports: [
     BrowserModule,
