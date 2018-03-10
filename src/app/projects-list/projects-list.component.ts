@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Project } from '../shared/project';
+import { AppInfo } from '../shared/appInfo';
 
 @Component({
   selector: 'app-projects-list',
@@ -8,6 +9,7 @@ import { Project } from '../shared/project';
   styleUrls: ['./projects-list.component.css']
 })
 export class ProjectsListComponent implements OnInit {
+  info: AppInfo;
   projects: Project[];
   @Output() showDetailsEvent = new EventEmitter<Project>();
 

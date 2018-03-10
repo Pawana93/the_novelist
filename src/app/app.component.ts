@@ -7,6 +7,7 @@ import { Project } from './shared/project';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title = "The Novelist";
   listOn = true;
   detailsOn = false;
 
