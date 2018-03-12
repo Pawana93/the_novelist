@@ -9,6 +9,8 @@ import { ProjectsDetailsComponent } from './projects-details/projects-details.co
 import { ProjectsListItemComponent } from './projects-list-item/projects-list-item.component';
 import { MainScreenComponent } from './main-screen/main-screen.component';
 
+import { ProjectStoreService } from './shared/project-store.service';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { MainScreenComponent } from './main-screen/main-screen.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [ProjectStoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

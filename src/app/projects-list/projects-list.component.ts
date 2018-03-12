@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Project } from '../shared/project';
+import { ProjectStoreService } from '../shared/project-store.service';
 
 @Component({
   selector: 'app-projects-list',
@@ -9,17 +10,10 @@ import { Project } from '../shared/project';
 })
 export class ProjectsListComponent implements OnInit {
   projects: Project[];
-  @Output() showDetailsEvent = new EventEmitter<Project>();
+  
+  constructor(private ps: ProjectStoreService) { }
 
   ngOnInit() {
-    this.projects = [
-      new Project('A new hope', 'Eine neue Hoffnung erscheint im Angesicht des Todes'),
-      new Project('Dawn', 'Ein dunkler Schatten erhebt sich'),
-      new Project('End', 'Alles hat ein Ende, nur die Wurst hat zwei')
-    ];
-  }
-
-  showDetails(project: Project) {
-    this.showDetailsEvent.emit(project);
+    this.projects = this.ps.getAll();
   }
 }

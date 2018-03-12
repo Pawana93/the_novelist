@@ -6,20 +6,4 @@ import { Project } from '../shared/project';
   templateUrl: './main-screen.component.html',
   styleUrls: ['./main-screen.component.css']
 })
-export class MainScreenComponent{
-  listOn = true;
-  detailsOn = false;
-
-  project: Project;
-
-  showList() {
-    this.listOn = true;
-    this.detailsOn = false;
-  }
-
-  showDetails(project: Project) {
-    this.project = project;
-    this.listOn = false;
-    this.detailsOn = true;
-  }
-}
+export class MainScreenComponent{}
