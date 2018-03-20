@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { ProjectsListComponent } from './projects-list/projects-list.component';
+import { ProjectsDetailsComponent } from './projects-details/projects-details.component';
 
 const routes: Routes = [
     {
@@ -15,12 +16,12 @@ const routes: Routes = [
     },
     {
         path: 'projects/:tag',
-        loadChildren: 'app/project/project.module#ProjectModule'
+        component: ProjectsDetailsComponent
     }
 ]
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
     exports: [RouterModule],
     providers: []
 })
