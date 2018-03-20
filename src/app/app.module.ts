@@ -8,8 +8,9 @@ import { AppComponent } from './app.component';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
 import { ProjectsListItemComponent } from './projects-list-item/projects-list-item.component';
 import { ProjectsDetailsComponent } from './projects-details/projects-details.component';
-
 import { ProjectStoreService } from './shared/project-store.service';
+import { ProjectResolverService } from './shared/project-resolver.service';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +24,10 @@ import { ProjectStoreService } from './shared/project-store.service';
     FormsModule,
     AppRoutingModule
   ],
-  providers: [ProjectStoreService],
+  providers: [
+    ProjectStoreService,
+    ProjectResolverService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
