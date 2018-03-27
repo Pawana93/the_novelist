@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+<<<<<<< HEAD
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatAutocompleteModule,
   MatButtonModule,
@@ -34,12 +35,15 @@ import { MatAutocompleteModule,
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule, } from '@angular/material';
+=======
+import { AppRoutingModule } from './app-routing.module';
+>>>>>>> bd506616b44f8b26272e0fe0b2766d5b6d2c928e
 
 
 import { AppComponent } from './app.component';
 import { ProjectsListComponent } from './projects-list/projects-list.component';
-import { ProjectsDetailsComponent } from './projects-details/projects-details.component';
 import { ProjectsListItemComponent } from './projects-list-item/projects-list-item.component';
+<<<<<<< HEAD
 
 import { ProjectStoreService } from './shared/project-store.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -117,14 +121,23 @@ import { ListComponent } from './list/list.component';
   declarations: []
 })
 export class MaterialModule { }
+=======
+import { ProjectsDetailsComponent } from './projects-details/projects-details.component';
+import { ProjectStoreService } from './shared/project-store.service';
+import { ProjectResolverService } from './shared/project-resolver.service';
+
+>>>>>>> bd506616b44f8b26272e0fe0b2766d5b6d2c928e
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectsListComponent,
-    ProjectsDetailsComponent,
     ProjectsListItemComponent,
+<<<<<<< HEAD
     ListComponent
+=======
+    ProjectsDetailsComponent
+>>>>>>> bd506616b44f8b26272e0fe0b2766d5b6d2c928e
   ],
   imports: [
     BrowserModule,
@@ -133,7 +146,10 @@ export class MaterialModule { }
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [ProjectStoreService],
+  providers: [
+    ProjectStoreService,
+    ProjectResolverService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
