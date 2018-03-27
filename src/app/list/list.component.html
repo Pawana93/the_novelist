@@ -1,0 +1,17 @@
+<mat-table #table [dataSource]="dataSource">
+
+  <!-- Tag Column -->
+  <ng-container matColumnDef="tag">
+    <mat-header-cell *matHeaderCellDef> Tag </mat-header-cell>
+    <mat-cell *matCellDef="let project"> {{project.tag}} </mat-cell>
+  </ng-container>
+
+  <!-- Project Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+    <mat-cell *matCellDef="let project"> {{project.title }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

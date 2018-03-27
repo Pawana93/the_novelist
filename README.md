@@ -9,3 +9,5 @@ As I am right now, it is very difficult to work on something, cause I have to st
 In the future I will improve this Readme file and add everything you have to know. So please stay tuned and support "The Novelist"
 
 Please look into the Projects Tab, to see what I am developing right now.
+
+The Novelist is using Angular Material as Theme.

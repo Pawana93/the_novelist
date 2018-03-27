@@ -21,4 +21,9 @@ export class ProjectStoreService {
     getSingle(tag) {
         return this.projects.find(project => project.tag === tag);
     }
+
+    deleteProject(tag) {
+        tag = this.projects.find(project => project.tag === tag);
+        this.projects.splice(tag, 1);
+    }
 }

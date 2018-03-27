@@ -10,7 +10,7 @@ import { ProjectStoreService } from '../shared/project-store.service';
 })
 export class ProjectsListComponent implements OnInit {
   projects: Project[];
-  
+
   constructor(private ps: ProjectStoreService) { }
 
   ngOnInit() {
