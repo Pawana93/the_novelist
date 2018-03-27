@@ -2,12 +2,8 @@ import { ProjectResolverService } from './shared/project-resolver.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-<<<<<<< HEAD
-=======
 import { ProjectsListComponent } from './projects-list/projects-list.component';
->>>>>>> bd506616b44f8b26272e0fe0b2766d5b6d2c928e
 import { ProjectsDetailsComponent } from './projects-details/projects-details.component';
-import { ProjectsListComponent } from './projects-list/projects-list.component';
 
 const routes: Routes = [
     {
@@ -18,8 +14,6 @@ const routes: Routes = [
     {
         path: 'projects',
         component: ProjectsListComponent
-<<<<<<< HEAD
-=======
     },
     {
         path: 'projects/:tag',
@@ -27,7 +21,6 @@ const routes: Routes = [
         resolve: {
             project: ProjectResolverService
         }
->>>>>>> bd506616b44f8b26272e0fe0b2766d5b6d2c928e
     }
 ];
 

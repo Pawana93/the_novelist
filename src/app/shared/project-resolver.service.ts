@@ -10,7 +10,7 @@ export class ProjectResolverService {
 
   constructor(private ps: ProjectStoreService) { }
 
-  resolve(route:ActivatedRouteSnapshot) {
+  resolve(route: ActivatedRouteSnapshot) {
     return this.ps.getSingle(route.params['tag']);
   }
 }
