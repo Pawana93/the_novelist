@@ -8,27 +8,17 @@ import { Project } from '../shared/project';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit{
+  projects: Project[];
   displayedColumns = ['tag', 'name'];
-  dataSource = PROJECT_DATA;
+  dataSource = this.projects;
 
   constructor(private ps: ProjectStoreService) { }
 
   ngOnInit() {
-    
+    this.projects = this.ps.getAll();
   }
 
   onRowClicked(row) {
     console.log('Row clicked: ', row);
   }
 }
-
-export interface Element {
-  tag: string;
-  title: string;
-}
-
-const PROJECT_DATA: Element[] = [
-  {tag: 'AnH', title: 'A new hope'},
-  {tag: 'D', title: 'Dawn'},
-  {tag: 'End', title: 'End'}
-];
