@@ -24,7 +24,5 @@ app.on('ready', function() {
         mainWindow.show();
     });
 
-    require('./menu/mainmenu');
-
     mainWindow.maximize();
 });
