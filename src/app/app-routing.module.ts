@@ -12,11 +12,7 @@ const routes: Routes = [
         component: ListComponent
     },
     {
-        path: 'projects',
-        component: ProjectsListComponent
-    },
-    {
-        path: 'projects/:tag',
+        path: ':tag',
         component: ProjectsDetailsComponent,
         resolve: {
             project: ProjectResolverService

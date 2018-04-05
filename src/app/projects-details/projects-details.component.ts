@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Project } from '../shared/project';
 import { ProjectStoreService } from '../shared/project-store.service';
@@ -14,11 +14,16 @@ export class ProjectsDetailsComponent implements OnInit {
 
   constructor(
     private ps: ProjectStoreService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
     const params = this.route.snapshot.params;
     this.project = this.ps.getSingle(params['tag']);
+  }
+
+  home() {
+    this.router.navigate(['']);
   }
 }
