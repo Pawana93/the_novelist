@@ -1,4 +1,4 @@
-<mat-table #table [dataSource]="dataSource">
+<mat-table #table [dataSource]="dataSource" (click)="move()">
 
   <!-- Tag Column -->
   <ng-container matColumnDef="tag">
@@ -13,5 +13,5 @@
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"></mat-row>
 </mat-table>

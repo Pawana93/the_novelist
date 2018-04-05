@@ -7,9 +7,19 @@ import { Project } from '../shared/project';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.css']
 })
-export class ListComponent {
+export class ListComponent implements OnInit{
   displayedColumns = ['tag', 'name'];
   dataSource = PROJECT_DATA;
+
+  constructor(private ps: ProjectStoreService) { }
+
+  ngOnInit() {
+    
+  }
+
+  onRowClicked(row) {
+    console.log('Row clicked: ', row);
+  }
 }
 
 export interface Element {
