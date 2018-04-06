@@ -119,6 +119,7 @@ export class MaterialModule { }
 
 import { ProjectsDetailsComponent } from './projects-details/projects-details.component';
 import { ProjectResolverService } from './shared/project-resolver.service';
+import { ProjectViewComponent } from './project-view/project-view.component';
 
 @NgModule({
   declarations: [
@@ -126,7 +127,8 @@ import { ProjectResolverService } from './shared/project-resolver.service';
     ProjectsListComponent,
     ProjectsListItemComponent,
     ListComponent,
-    ProjectsDetailsComponent
+    ProjectsDetailsComponent,
+    ProjectViewComponent
   ],
   imports: [
     BrowserModule,
