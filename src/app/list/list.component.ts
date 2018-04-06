@@ -30,4 +30,12 @@ export class ListComponent implements OnInit {
   createProject() {
     console.log('project created');
   }
+
+  edit(tag) {
+    console.log('project edited: ', tag);
+  }
+
+  delete(tag) {
+    console.log('project deleted: ', tag);
+  }
 }
