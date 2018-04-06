@@ -37,8 +37,6 @@ import { MatAutocompleteModule,
 
 
 import { AppComponent } from './app.component';
-import { ProjectsListComponent } from './projects-list/projects-list.component';
-import { ProjectsListItemComponent } from './projects-list-item/projects-list-item.component';
 
 import { ProjectStoreService } from './shared/project-store.service';
 import { AppRoutingModule } from './app-routing.module';
@@ -117,17 +115,13 @@ import { ListComponent } from './list/list.component';
 })
 export class MaterialModule { }
 
-import { ProjectsDetailsComponent } from './projects-details/projects-details.component';
 import { ProjectResolverService } from './shared/project-resolver.service';
 import { ProjectViewComponent } from './project-view/project-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProjectsListComponent,
-    ProjectsListItemComponent,
     ListComponent,
-    ProjectsDetailsComponent,
     ProjectViewComponent
   ],
   imports: [

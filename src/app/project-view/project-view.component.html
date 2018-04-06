@@ -1,3 +1,6 @@
-<p>
-  project-view works!
-</p>
+<div *ngIf="project">
+  <h1><span>Title: </span>{{ project.title }}</h1>
+  <p><span>Description: </span>{{ project.description }}</p>
+</div>
+
+<button (click)="home()">Zurück zur Projektliste</button>

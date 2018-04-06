@@ -2,8 +2,7 @@ import { ProjectResolverService } from './shared/project-resolver.service';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
-import { ProjectsListComponent } from './projects-list/projects-list.component';
-import { ProjectsDetailsComponent } from './projects-details/projects-details.component';
+import { ProjectViewComponent } from './project-view/project-view.component';
 import { ListComponent } from './list/list.component';
 
 const routes: Routes = [
@@ -13,7 +12,7 @@ const routes: Routes = [
     },
     {
         path: ':tag',
-        component: ProjectsDetailsComponent,
+        component: ProjectViewComponent,
         resolve: {
             project: ProjectResolverService
         }

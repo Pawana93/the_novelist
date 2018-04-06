@@ -12,6 +12,23 @@
     <mat-cell *matCellDef="let project"> {{project.title }}</mat-cell>
   </ng-container>
 
+  <ng-container matColumnDef="description">
+    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+    <mat-cell *matCellDef="let project"> {{project.description }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="buttons">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let project" (click)="$event.stopPropagation()"> 
+      <button mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon>
+      </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="edit(project.tag)">Edit</button>
+          <button mat-menu-item (click)="delete(project.tag)">Delete</button>              
+        </mat-menu>
+    </mat-cell>
+  </ng-container>
+
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"></mat-row>
 </mat-table>

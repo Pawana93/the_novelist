@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { Project } from '../shared/project';
+import { ProjectStoreService } from '../shared/project-store.service';
 
 @Component({
   selector: 'app-project-view',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectViewComponent implements OnInit {
 
-  constructor() { }
+  project: Project;
+
+  constructor(
+    private ps: ProjectStoreService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit() {
+    const params = this.route.snapshot.params;
+    this.project = this.ps.getSingle(params['tag']);
   }
 
+  home() {
+    this.router.navigate(['']);
+  }
 }

@@ -1,3 +1,7 @@
 .mat-column-tag {
     flex: 0 0 100px;
 }
+
+.mat-column-buttons {
+    flex: 0 0 100px;
+}
