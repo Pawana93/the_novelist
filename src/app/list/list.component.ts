@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectStoreService } from '../shared/project-store.service';
 import { Project } from '../shared/project';
-import { MatMenuTrigger } from '@angular/material';
+import { MatMenuTrigger, MatDialog } from '@angular/material';
+import { ProjectFormComponent } from '../forms/project-form/project-form.component';
 
 @Component({
   selector: 'app-list',
@@ -16,7 +17,7 @@ export class ListComponent implements OnInit {
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-  constructor(private ps: ProjectStoreService, private router: Router) { }
+  constructor(private ps: ProjectStoreService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.projects = this.ps.getAll();
@@ -28,7 +29,23 @@ export class ListComponent implements OnInit {
   }
 
   createProject() {
-    console.log('project created');
+    console.log('opened dialog');
+    const dialogRef = this.dialog.open(ProjectFormComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (typeof result === 'undefined') {
+        return;
+      }
+
+      const project = {
+        title: result.title,
+        tag: result.tag,
+        description: result.description
+      };
+      console.log('result: ', project);
+    });
   }
 
   edit(tag) {

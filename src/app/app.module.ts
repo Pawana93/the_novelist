@@ -117,12 +117,14 @@ export class MaterialModule { }
 
 import { ProjectResolverService } from './shared/project-resolver.service';
 import { ProjectViewComponent } from './project-view/project-view.component';
+import { ProjectFormComponent } from './forms/project-form/project-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListComponent,
-    ProjectViewComponent
+    ProjectViewComponent,
+    ProjectFormComponent
   ],
   imports: [
     BrowserModule,
