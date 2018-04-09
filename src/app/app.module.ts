@@ -137,6 +137,7 @@ import { ProjectFormComponent } from './forms/project-form/project-form.componen
     ProjectStoreService,
     ProjectResolverService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ProjectFormComponent]
 })
 export class AppModule { }

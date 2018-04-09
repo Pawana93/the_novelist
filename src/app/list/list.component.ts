@@ -28,23 +28,14 @@ export class ListComponent implements OnInit {
     this.router.navigate([row.tag]);
   }
 
-  createProject() {
-    console.log('opened dialog');
-    const dialogRef = this.dialog.open(ProjectFormComponent, {
-      width: '250px'
+  createProject(): void {
+    let dialogRef = this.dialog.open(ProjectFormComponent, {
+      width: '250px',
+      data: { title: '', tag: '', description: '' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (typeof result === 'undefined') {
-        return;
-      }
-
-      const project = {
-        title: result.title,
-        tag: result.tag,
-        description: result.description
-      };
-      console.log('result: ', project);
+      console.log('result is: ', result);
     });
   }
 
