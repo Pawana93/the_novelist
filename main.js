@@ -1,28 +1,34 @@
-const electron = require('electron');
-const path = require('path');
-const url = require('url');
+const { app, BrowserWindow } = require('electron')
+
+let win;
+
+function createWindow () {
+  win = new BrowserWindow({
+    width: 600, 
+    height: 600,
+    backgroundColor: '#ffffff',
+    icon: `file://${__dirname}/dist/assets/logo.png`
+  })
 
 
-const {app, BrowserWindow, Menu, webContents} = electron;
+  win.loadURL(`file://${__dirname}/dist/index.html`)
 
-let mainWindow;
-let aboutWindow;
+  win.on('closed', function () {
+    win = null
+  })
+}
 
-app.on('ready', function() {
-    mainWindow = new BrowserWindow({titleBarStyle: 'hidden', show: false, width: 1281, height: 800, minWidth: 1281, minHeight: 800, icon: __dirname + '/assets/icons/win/icon.ico'});
-    mainWindow.loadURL('file://${__dirname}/dist/index.html');   
-    
-    mainWindow.webContents.on('did-finish-load', function() {
-        mainWindow.show();
-    })
+app.on('ready', createWindow)
 
-    mainWindow.on('closed', function(){
-        app.quit();
-    });
+app.on('window-all-closed', function () {
 
-    mainWindow.once('ready-to-show', () => {
-        mainWindow.show();
-    });
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+})
 
-    mainWindow.maximize();
-});
+app.on('activate', function () {
+  if (win === null) {
+    createWindow()
+  }
+})
