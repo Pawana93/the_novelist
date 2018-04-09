@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectStoreService } from '../shared/project-store.service';
 import { Project } from '../shared/project';
-import { MatMenuTrigger, MatDialog } from '@angular/material';
+import { MatMenuTrigger, MatDialog, MatTableDataSource } from '@angular/material';
 import { ProjectFormComponent } from '../forms/project-form/project-form.component';
 
 @Component({
@@ -21,7 +21,8 @@ export class ListComponent implements OnInit {
   constructor(private ps: ProjectStoreService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.projects = this.ps.getAll();
+    // this.projects = this.ps.getAll();
+    this.refresh();
   }
 
   onRowClicked(row) {
@@ -35,23 +36,20 @@ export class ListComponent implements OnInit {
       data: {title: '', tag: '', description: '' }
     });
 
+    let projectData = '';
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('result is: ', result);
-      this.project = new Project(
-        result.title,
-        result.tag,
-        result.description
-      );
+      projectData = result;
+      this.ps.create(projectData);
+      // this.projects = this.ps.getAll();
+      this.refresh();
+      console.log(this.projects);
     });
-
-    this.ps.create(this.project);
-
-    this.refreshData();
-
   }
 
-  refreshData() {
-    this.ps.getAll();
+  refresh() {
+    this. projects = this.ps.getAll();
   }
 
   edit(tag) {
