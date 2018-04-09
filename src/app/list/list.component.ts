@@ -42,9 +42,7 @@ export class ListComponent implements OnInit {
       console.log('result is: ', result);
       projectData = result;
       this.ps.create(projectData);
-      // this.projects = this.ps.getAll();
-      this.refresh();
-      console.log(this.projects);
+      this.router.navigate([result.tag]);
     });
   }
 
