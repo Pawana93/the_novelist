@@ -14,6 +14,10 @@ export class ProjectStoreService {
         ];
     }
 
+    create(project) {
+        this.projects.push(project);
+    }
+
     getAll() {
         return this.projects;
     }

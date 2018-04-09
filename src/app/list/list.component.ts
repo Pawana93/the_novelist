@@ -11,6 +11,7 @@ import { ProjectFormComponent } from '../forms/project-form/project-form.compone
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+  project: Project;
   projects: Project[];
   displayedColumns = ['tag', 'name', 'description', 'buttons'];
   dataSource = this.projects;
@@ -29,14 +30,28 @@ export class ListComponent implements OnInit {
   }
 
   createProject(): void {
-    let dialogRef = this.dialog.open(ProjectFormComponent, {
+    const dialogRef = this.dialog.open(ProjectFormComponent, {
       width: '250px',
-      data: { title: '', tag: '', description: '' }
+      data: {title: '', tag: '', description: '' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('result is: ', result);
+      this.project = new Project(
+        result.title,
+        result.tag,
+        result.description
+      );
     });
+
+    this.ps.create(this.project);
+
+    this.refreshData();
+
+  }
+
+  refreshData() {
+    this.ps.getAll();
   }
 
   edit(tag) {

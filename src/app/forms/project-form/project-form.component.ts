@@ -9,7 +9,8 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 })
 export class ProjectFormComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<ProjectFormComponent>,
+  constructor(
+    public dialogRef: MatDialogRef<ProjectFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   onNoClick(): void {
