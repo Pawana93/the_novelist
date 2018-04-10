@@ -56,5 +56,7 @@ export class ListComponent implements OnInit {
 
   delete(tag) {
     console.log('project deleted: ', tag);
+    this.ps.deleteProject(tag);
+    this.router.navigate(['']);
   }
 }

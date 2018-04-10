@@ -4,30 +4,35 @@ import { Project } from './project';
 
 @Injectable()
 export class ProjectStoreService {
-    projects: Project[];
 
     constructor() {
-        this.projects = [
-            new Project('A new hope', 'AnH', 'Eine neue Hoffnung erscheint im Angesicht des Todes'),
-            new Project('Dawn', 'D', 'Ein dunkler Schatten erhebt sich'),
-            new Project('End', 'End', 'Alles hat ein Ende, nur die Wurst hat zwei')
-        ];
+        let projects = this.getAll();
     }
 
-    create(project) {
-        this.projects.push(project);
+    public create(project): void {
+        let projects = this.getAll();
+        projects.push(project);
+        this.setLocalStorageProjects(projects);
     }
 
-    getAll() {
-        return this.projects;
+    public getAll(): Project[] {
+        let localStorageItem = JSON.parse(localStorage.getItem('projects'));
+        return localStorageItem == null ? [] : localStorageItem.projects;
     }
 
-    getSingle(tag) {
-        return this.projects.find(project => project.tag === tag);
+    public getSingle(tag) {
+        let projects = this.getAll();
+        return projects.find(project => project.tag === tag);
     }
 
-    deleteProject(tag) {
-        tag = this.projects.find(project => project.tag === tag);
-        this.projects.splice(tag, 1);
+    public deleteProject(tag) {
+        let projects = this.getAll();
+        tag = projects.find(project => project.tag === tag);
+        projects.splice(tag, 1);
+        this.setLocalStorageProjects(projects);
+    }
+
+    private setLocalStorageProjects(projects: Project[]): void {
+        localStorage.setItem('projects', JSON.stringify({ projects: projects }));
     }
 }
