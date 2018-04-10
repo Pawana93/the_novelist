@@ -27,8 +27,7 @@ export class ProjectStoreService {
 
     public deleteProject(tag) {
         let projects = this.getAll();
-        tag = projects.find(project => project.tag === tag);
-        projects.splice(tag, 1);
+        projects = projects.filter(project => project.tag !== tag);
         this.setLocalStorageProjects(projects);
     }
 

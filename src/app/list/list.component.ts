@@ -21,8 +21,7 @@ export class ListComponent implements OnInit {
   constructor(private ps: ProjectStoreService, private router: Router, public dialog: MatDialog) { }
 
   ngOnInit() {
-    // this.projects = this.ps.getAll();
-    this.refresh();
+    this.projects = this.ps.getAll();
   }
 
   onRowClicked(row) {
@@ -42,12 +41,8 @@ export class ListComponent implements OnInit {
       console.log('result is: ', result);
       projectData = result;
       this.ps.create(projectData);
-      this.router.navigate([result.tag]);
+      this.ngOnInit();
     });
-  }
-
-  refresh() {
-    this. projects = this.ps.getAll();
   }
 
   edit(tag) {
@@ -57,6 +52,6 @@ export class ListComponent implements OnInit {
   delete(tag) {
     console.log('project deleted: ', tag);
     this.ps.deleteProject(tag);
-    this.router.navigate(['']);
+    this.ngOnInit();
   }
 }
