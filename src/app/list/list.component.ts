@@ -47,6 +47,25 @@ export class ListComponent implements OnInit {
 
   edit(tag) {
     console.log('project edited: ', tag);
+
+    let project = this.ps.getSingle(tag);
+
+    const dialogRef = this.dialog.open(ProjectFormComponent, {
+      width: '250px',
+      data: { title: project.title, tag: project.tag, description: project.description }
+    });
+
+    let projectData = project;
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('result is: ', result);
+      projectData.title = result.title;
+      projectData.tag = result.tag;
+      projectData.description = result.description;
+      this.ps.deleteProject(project.tag);
+      this.ps.create(projectData);
+      this.ngOnInit();
+    })
   }
 
   delete(tag) {
