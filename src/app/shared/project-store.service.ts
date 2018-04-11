@@ -39,6 +39,14 @@ export class ProjectStoreService {
         saveAs(blob, 'projects.json');
     }
 
+    downloadSingle(tag) {
+        let projects = this.getAll();
+        let project = projects.find(project => project.tag === tag);
+        let blob = new Blob([project], { type: 'appliction/json' })
+        console.log('blob: ', blob);
+        saveAs(blob, tag + '.json');
+    }
+
     private setLocalStorageProjects(projects: Project[]): void {
         localStorage.setItem('projects', JSON.stringify({ projects: projects }));
     }
