@@ -1,28 +1,143 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule, } from '@angular/material';
 
 
 import { AppComponent } from './app.component';
-import { ProjectsListComponent } from './projects-list/projects-list.component';
-import { ProjectsDetailsComponent } from './projects-details/projects-details.component';
-import { ProjectsListItemComponent } from './projects-list-item/projects-list-item.component';
-import { MainScreenComponent } from './main-screen/main-screen.component';
 
+import { ProjectStoreService } from './shared/project-store.service';
+import { AppRoutingModule } from './app-routing.module';
+import { ListComponent } from './list/list.component';
+
+@NgModule({
+  imports: [
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatStepperModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule
+  ],
+  exports: [
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatButtonToggleModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatGridListModule,
+    MatIconModule,
+    MatInputModule,
+    MatListModule,
+    MatMenuModule,
+    MatNativeDateModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatRadioModule,
+    MatRippleModule,
+    MatSelectModule,
+    MatSidenavModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatSnackBarModule,
+    MatSortModule,
+    MatStepperModule,
+    MatTableModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTooltipModule
+  ],
+  declarations: []
+})
+export class MaterialModule { }
+
+import { ProjectResolverService } from './shared/project-resolver.service';
+import { ProjectViewComponent } from './project-view/project-view.component';
+import { ProjectFormComponent } from './forms/project-form/project-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProjectsListComponent,
-    ProjectsDetailsComponent,
-    ProjectsListItemComponent,
-    MainScreenComponent
+    ListComponent,
+    ProjectViewComponent,
+    ProjectFormComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    ProjectStoreService,
+    ProjectResolverService
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [ProjectFormComponent]
 })
 export class AppModule { }
