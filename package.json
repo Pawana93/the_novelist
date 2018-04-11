@@ -2,7 +2,6 @@
   "name": "the-novelist",
   "version": "0.0.0",
   "license": "MIT",
-  "main": "main.js",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -10,8 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "electron": "electron .",
-    "electron-build": "ng build --prod && electron ."
+    "electron": "npm run build-electron && ./node_modules/.bin/electron dist/",
+    "build-electron": "ng build --base-href . && cp src/electron/* dist/"
   },
   "private": true,
   "dependencies": {
