@@ -73,4 +73,8 @@ export class ListComponent implements OnInit {
     this.ps.deleteProject(tag);
     this.ngOnInit();
   }
+
+  downloadAll() {
+    this.ps.downloadAllProjects();
+  }
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { saveAs } from 'file-saver';
 
 import { Project } from './project';
 
@@ -29,6 +30,13 @@ export class ProjectStoreService {
         let projects = this.getAll();
         projects = projects.filter(project => project.tag !== tag);
         this.setLocalStorageProjects(projects);
+    }
+
+    downloadAllProjects() {
+        let projects = this.getAll();
+        let blob = new Blob([projects], { type: 'appliction/json' })
+        console.log('blob: ', blob);
+        saveAs(blob, 'projects.json');
     }
 
     private setLocalStorageProjects(projects: Project[]): void {
