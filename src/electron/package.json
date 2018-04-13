@@ -1,5 +1,7 @@
 {
-    "name": "electron-angular",
+    "name": "the_novelist_electron",
+    "productName": "The Novelist",
+    "description": "A simple Writing Tool for Novelists",
     "version": "0.0.1",
     "main": "main.js"
 }
