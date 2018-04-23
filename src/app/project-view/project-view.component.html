@@ -1,8 +1,13 @@
+<div class="sidebar">
+  
+</div>
+
+
 <div *ngIf="project">
   <h1><span>Title: </span>{{ project.title }}</h1>
   <p><span>Description: </span>{{ project.description }}</p>
 </div>
 
-<app-chapters></app-chapters>
+<router-outlet></router-outlet>
 
 <button (click)="home()">Zurück zur Projektliste</button>

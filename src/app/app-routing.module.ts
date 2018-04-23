@@ -4,6 +4,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { ProjectViewComponent } from './project-view/project-view.component';
 import { ListComponent } from './list/list.component';
+import { ChaptersComponent } from './project-view/chapters/chapters.component';
 
 const routes: Routes = [
     {
@@ -15,7 +16,13 @@ const routes: Routes = [
         component: ProjectViewComponent,
         resolve: {
             project: ProjectResolverService
-        }
+        },
+        children: [
+            {
+                path: '',
+                component: ChaptersComponent
+            }
+        ]
     }
 ];
 
