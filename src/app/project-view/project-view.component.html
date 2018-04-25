@@ -1,13 +1,8 @@
-<div class="sidebar">
-  
-</div>
-
-
-<div *ngIf="project">
-  <h1><span>Title: </span>{{ project.title }}</h1>
-  <p><span>Description: </span>{{ project.description }}</p>
-</div>
-
-<router-outlet></router-outlet>
-
-<button (click)="home()">Zurück zur Projektliste</button>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened>
+      <button (click)="home()">Home</button>
+    </mat-sidenav>
+    <mat-sidenav-content>          
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
