@@ -77,4 +77,9 @@ export class ListComponent implements OnInit {
   downloadAll() {
     this.ps.downloadAllProjects();
   }
+
+  /*setProjectData(project: Project): void {
+    let chapter = project.title;
+    localStorage.setItem('projects', JSON.stringify({ project: project }));
+  }*/
 }
