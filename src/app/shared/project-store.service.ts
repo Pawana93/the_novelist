@@ -50,4 +50,13 @@ export class ProjectStoreService {
     private setLocalStorageProjects(projects: Project[]): void {
         localStorage.setItem('projects', JSON.stringify({ projects: projects }));
     }
+
+    writeProjectData(tag) {
+        let project = this.getSingle(tag);
+        localStorage.setItem('baseInfo', JSON.stringify({ title: project.title, tag: project.tag, description: project.description }));
+    }
+
+    clearProjectData() {
+        localStorage.setItem('baseInfo', '');
+    }
 }

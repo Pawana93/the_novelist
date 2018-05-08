@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Project } from '../shared/project';
@@ -12,11 +12,16 @@ import { ProjectStoreService } from '../shared/project-store.service';
 export class ProjectViewComponent {
 
   constructor(
+    private ps: ProjectStoreService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
   home() {
     this.router.navigate(['']);
+  }
+
+  ngOnDestroy() {
+    this.ps.clearProjectData();
   }
 }

@@ -27,6 +27,7 @@ export class ListComponent implements OnInit {
   onRowClicked(row) {
     console.log('Row clicked: ', row);
     this.router.navigate([row.tag]);
+    this.ps.writeProjectData(row.tag);
   }
 
   createProject(): void {
