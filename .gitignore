@@ -8,6 +8,7 @@
 
 # dependencies
 /node_modules
+package-lock.json
 
 # IDEs and editors
 /.idea
@@ -74,6 +75,7 @@ bower_components
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/
+release-builds/
 
 # Compiled source code
 dist/

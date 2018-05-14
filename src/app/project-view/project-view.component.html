@@ -1,6 +1,13 @@
-<div *ngIf="project">
-  <h1><span>Title: </span>{{ project.title }}</h1>
-  <p><span>Description: </span>{{ project.description }}</p>
-</div>
-
-<button (click)="home()">Zurück zur Projektliste</button>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" role="navigation" opened>
+      <mat-list role="list">
+        <mat-list-item><button [routerLink]="['chapters']" title="Chapters"><i class="material-icons">assignment</i></button></mat-list-item>
+        <mat-list-item><button><i class="material-icons" title="Characters">account_box</i></button></mat-list-item>
+        <mat-list-item><button><i class="material-icons" title="Places">location_city</i></button></mat-list-item>
+        <mat-list-item><button (click)="home()" title="Back to list"><i class="material-icons">exit_to_app</i></button></mat-list-item>
+      </mat-list>
+    </mat-sidenav>
+    <mat-sidenav-content>          
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

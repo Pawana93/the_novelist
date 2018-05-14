@@ -27,6 +27,7 @@ export class ListComponent implements OnInit {
   onRowClicked(row) {
     console.log('Row clicked: ', row);
     this.router.navigate([row.tag]);
+    this.ps.writeProjectData(row.tag);
   }
 
   createProject(): void {
@@ -49,13 +50,12 @@ export class ListComponent implements OnInit {
     console.log('project edited: ', tag);
 
     let project = this.ps.getSingle(tag);
+    let projectData = this.ps.getSingle(tag);
 
     const dialogRef = this.dialog.open(ProjectFormComponent, {
       width: '250px',
       data: { title: project.title, tag: project.tag, description: project.description }
     });
-
-    let projectData = project;
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('result is: ', result);
@@ -72,5 +72,9 @@ export class ListComponent implements OnInit {
     console.log('project deleted: ', tag);
     this.ps.deleteProject(tag);
     this.ngOnInit();
+  }
+
+  downloadAll() {
+    this.ps.downloadAllProjects();
   }
 }

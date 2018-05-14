@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Project } from '../shared/project';
@@ -9,9 +9,7 @@ import { ProjectStoreService } from '../shared/project-store.service';
   templateUrl: './project-view.component.html',
   styleUrls: ['./project-view.component.css']
 })
-export class ProjectViewComponent implements OnInit {
-
-  project: Project;
+export class ProjectViewComponent {
 
   constructor(
     private ps: ProjectStoreService,
@@ -19,12 +17,11 @@ export class ProjectViewComponent implements OnInit {
     private router: Router
   ) { }
 
-  ngOnInit() {
-    const params = this.route.snapshot.params;
-    this.project = this.ps.getSingle(params['tag']);
-  }
-
   home() {
     this.router.navigate(['']);
+  }
+
+  ngOnDestroy() {
+    this.ps.clearProjectData();
   }
 }
