@@ -1,6 +1,7 @@
 <mat-sidenav-container class="example-container">
     <mat-sidenav mode="side" opened>
       <button (click)="home()">Home</button>
+      <button [routerLink]="['chapters']">Chapters</button>
     </mat-sidenav>
     <mat-sidenav-content>          
       <router-outlet></router-outlet>
