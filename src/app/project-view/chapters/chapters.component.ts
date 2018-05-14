@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChaptersComponent implements OnInit {
 
+  chapters;
+
   constructor() { }
 
   ngOnInit() {
+    const data = localStorage.getItem('chapters');
+    this.chapters = JSON.parse(data);
   }
 
 }

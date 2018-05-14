@@ -29,5 +29,5 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"></mat-row>
 </mat-table>
 
-<button mat-button class="create-new" (click)="createProject()">Add Project</button>
-<button mat-button class="create-new" (click)="downloadAll()">Export Projects</button>
+<button mat-button class="create-new" (click)="createProject()" title="Create new project"><i class="material-icons">add</i></button>
+<button mat-button class="create-new" (click)="downloadAll()" title="Export Projects"><i class="material-icons">get_app</i></button>

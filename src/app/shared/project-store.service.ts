@@ -7,22 +7,22 @@ import { Project } from './project';
 export class ProjectStoreService {
 
     constructor() {
-        let projects = this.getAll();
+        const projects = this.getAll();
     }
 
     public create(project): void {
-        let projects = this.getAll();
+        const projects = this.getAll();
         projects.push(project);
         this.setLocalStorageProjects(projects);
     }
 
     public getAll(): Project[] {
-        let localStorageItem = JSON.parse(localStorage.getItem('projects'));
+        const localStorageItem = JSON.parse(localStorage.getItem('projects'));
         return localStorageItem == null ? [] : localStorageItem.projects;
     }
 
     public getSingle(tag) {
-        let projects = this.getAll();
+        const projects = this.getAll();
         return projects.find(project => project.tag === tag);
     }
 
@@ -33,16 +33,16 @@ export class ProjectStoreService {
     }
 
     downloadAllProjects() {
-        let projects = this.getAll();
-        let blob = new Blob([projects], { type: 'appliction/json' })
+        const projects = this.getAll();
+        const blob = new Blob([projects], { type: 'appliction/json' });
         console.log('blob: ', blob);
         saveAs(blob, 'projects.json');
     }
 
     downloadSingle(tag) {
-        let projects = this.getAll();
-        let project = projects.find(project => project.tag === tag);
-        let blob = new Blob([project], { type: 'appliction/json' })
+        const projects = this.getAll();
+        const project = projects.find(project => project.tag === tag);
+        const blob = new Blob([project], { type: 'appliction/json' });
         console.log('blob: ', blob);
         saveAs(blob, tag + '.json');
     }
@@ -52,7 +52,7 @@ export class ProjectStoreService {
     }
 
     writeProjectData(tag) {
-        let project = this.getSingle(tag);
+        const project = this.getSingle(tag);
         localStorage.setItem('baseInfo', JSON.stringify({ title: project.title, tag: project.tag, description: project.description }));
     }
 

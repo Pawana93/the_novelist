@@ -20,7 +20,7 @@ export class BaseInfoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    let data = localStorage.getItem('baseInfo');
+    const data = localStorage.getItem('baseInfo');
     this.project = JSON.parse(data);
     console.log(this.project);
   }
