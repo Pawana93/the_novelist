@@ -22,16 +22,6 @@ const routes: Routes = [
             {
                 path: '',
                 component: BaseInfoComponent
-            },
-            {
-                path: 'chapters',
-                component: ChaptersComponent,
-                /* children: [
-                    {
-                        path: ':id',
-                        component: ScenesComponent
-                    }
-                ] */
             }
         ]
     }
