@@ -22,6 +22,10 @@ const routes: Routes = [
             {
                 path: '',
                 component: BaseInfoComponent
+            },
+            {
+                path: 'chapters',
+                component: ChaptersComponent
             }
         ]
     }

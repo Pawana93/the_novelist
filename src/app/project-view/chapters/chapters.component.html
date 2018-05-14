@@ -1,3 +1,28 @@
-<p>
-  chapters works!
-</p>
+<mat-table #table [dataSource]="chapters">
+
+    <!-- Tag Column -->
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+      <mat-cell *matCellDef="let chapter"> {{chapter.tag}} </mat-cell>
+    </ng-container>
+  
+    <!-- chapter Column -->
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+      <mat-cell *matCellDef="let chapter"> {{chapter.title }}</mat-cell>
+    </ng-container>
+  
+    <ng-container matColumnDef="buttons">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let chapter" (click)="$event.stopPropagation()"> 
+        <button mat-menu-item (click)="edit(chapter.id)" title="Edit {{chapter.id }}"><i class="material-icons">mode_edit</i></button>
+        <button mat-menu-item (click)="delete(chapter.id)" title="Delete {{chapter.id }}"><i class="material-icons">delete</i></button>
+      </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClicked(row)"></mat-row>
+  </mat-table>
+  
+  <button mat-button class="create-new" (click)="createChapter()" title="Create new chapter"><i class="material-icons">add</i></button>
+  
