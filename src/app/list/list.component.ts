@@ -50,13 +50,12 @@ export class ListComponent implements OnInit {
     console.log('project edited: ', tag);
 
     let project = this.ps.getSingle(tag);
+    let projectData = this.ps.getSingle(tag);
 
     const dialogRef = this.dialog.open(ProjectFormComponent, {
       width: '250px',
       data: { title: project.title, tag: project.tag, description: project.description }
     });
-
-    let projectData = project;
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('result is: ', result);
@@ -78,9 +77,4 @@ export class ListComponent implements OnInit {
   downloadAll() {
     this.ps.downloadAllProjects();
   }
-
-  /*setProjectData(project: Project): void {
-    let chapter = project.title;
-    localStorage.setItem('projects', JSON.stringify({ project: project }));
-  }*/
 }
