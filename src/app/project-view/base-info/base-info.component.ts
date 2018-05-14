@@ -11,7 +11,7 @@ import { ProjectStoreService } from '../../shared/project-store.service';
 })
 export class BaseInfoComponent implements OnInit {
 
-  project: Project;
+  project;
 
   constructor(
     private ps: ProjectStoreService,
@@ -20,7 +20,8 @@ export class BaseInfoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const params = this.route.snapshot.params;
-    this.project = this.ps.getSingle(params['tag']);
+    let data = localStorage.getItem('baseInfo');
+    this.project = JSON.parse(data);
+    console.log(this.project);
   }
 }
