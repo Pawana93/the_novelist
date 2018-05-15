@@ -1,7 +1,7 @@
-const setupEvents = require('../installers/setupEvents');
+/*const setupEvents = require('../installers/setupEvents');
 if(setupevents.handleSquirrelEvent()) {
   return;
-}
+}*/
 
 const electron = require('electron');
 const app = electron.app;
@@ -9,13 +9,13 @@ const BrowserWindow = electron.BrowserWindow;
 
 const path = require('path');
 const url = require('url');
-const Store = require('./store');
+//const Store = require('./store');
 
 let mainWindow;
 
 function createWindow() {
 
-  let { width, heigth } = store.get('windowBounds');
+  //let { width, heigth } = store.get('windowBounds');
 
   mainWindow = new BrowserWindow({
     width: 800,
@@ -32,10 +32,10 @@ function createWindow() {
     mainWindow = null;
   })
 
-  mainWindow.on('resize', () => {
+  /*mainWindow.on('resize', () => {
     let { width, height } = mainWindow.getBounds();
     store.set('windowBounds', { width, height });
-  })
+  })*/
 }
 
 app.on('ready', createWindow)
