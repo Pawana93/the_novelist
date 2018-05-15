@@ -1,5 +1,7 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MatTableDataSource } from '@angular/material';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatMenuTrigger, MatDialog, MatTableDataSource } from '@angular/material';
+import { ChapterFormComponent } from '../../forms/chapter/chapter.component';
+import { Chapter } from '../../shared/chapter';
 
 @Component({
   selector: 'app-chapters',
@@ -8,32 +10,40 @@ import { MatTableDataSource } from '@angular/material';
 })
 export class ChaptersComponent implements OnInit {
 
-  chapters;
-
   displayedColumns = ['id', 'title', 'buttons'];
 
-  constructor() { }
+  @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
-    const data = localStorage.getItem('chapters');
-    this.chapters = JSON.parse(data);
+    const chapters = this.getAll();
   }
 
-  /*createChapter(): void {
+  public getAll(): Chapter[] {
+    const localStorageItem = JSON.parse(localStorage.getItem('chapters'));
+    return localStorageItem == null ? [] : localStorageItem.chapters;
+  }
+
+  createChapter(): void {
+    const chapters = this.getAll();
+
     const dialogRef = this.dialog.open(ChapterFormComponent, {
       width: '250px',
       data: {id: '', title: '' }
     });
 
-    let projectData = '';
+    let chapterData = '';
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('result is: ', result);
-      projectData = result;
-      this.ps.create(projectData);
+      chapterData = result;
+      console.log(chapterData);
+      chapters.push;
+      localStorage.setItem('chapters', JSON.stringify(chapters));
       this.ngOnInit();
     });
-  }*/
+  }
 
   edit(id) {
     console.log(id);
@@ -41,10 +51,6 @@ export class ChaptersComponent implements OnInit {
 
   delete(id) {
     console.log(id);
-  }
-
-  ngOnDestroy() {
-    localStorage.setItem('chapters', this.chapters);
   }
 
 }

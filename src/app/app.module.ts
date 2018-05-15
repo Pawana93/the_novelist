@@ -120,6 +120,7 @@ import { ProjectViewComponent } from './project-view/project-view.component';
 import { ProjectFormComponent } from './forms/project-form/project-form.component';
 import { ChaptersComponent } from './project-view/chapters/chapters.component';
 import { BaseInfoComponent } from './project-view/base-info/base-info.component';
+import { ChapterFormComponent } from './forms/chapter/chapter.component';
 
 @NgModule({
   declarations: [
@@ -127,6 +128,7 @@ import { BaseInfoComponent } from './project-view/base-info/base-info.component'
     ListComponent,
     ProjectViewComponent,
     ProjectFormComponent,
+    ChapterFormComponent,
     ChaptersComponent,
     BaseInfoComponent
   ],
@@ -142,6 +144,9 @@ import { BaseInfoComponent } from './project-view/base-info/base-info.component'
     ProjectResolverService
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ProjectFormComponent]
+  entryComponents: [
+    ProjectFormComponent,
+    ChapterFormComponent
+  ]
 })
 export class AppModule { }

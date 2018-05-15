@@ -1,0 +1,14 @@
+<div mat-dialog-content>
+  <span class="label">ID</span>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.tag">
+  </mat-form-field>
+  <p>Enter Chapter Title: </p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.title">
+  </mat-form-field>  
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data">Create</button>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+</div>
