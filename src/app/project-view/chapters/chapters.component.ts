@@ -10,6 +10,9 @@ import { Chapter } from '../../shared/chapter';
 })
 export class ChaptersComponent implements OnInit {
 
+  chapters: Chapter[];
+  dataSource = this.chapters;
+
   displayedColumns = ['id', 'title', 'buttons'];
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
@@ -17,7 +20,7 @@ export class ChaptersComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
-    const chapters = this.getAll();
+    this.chapters = this.getAll();
   }
 
   public getAll(): Chapter[] {
@@ -26,7 +29,7 @@ export class ChaptersComponent implements OnInit {
   }
 
   createChapter(): void {
-    const chapters = this.getAll();
+    const chapters = this.chapters;
 
     const dialogRef = this.dialog.open(ChapterFormComponent, {
       width: '250px',
@@ -38,14 +41,17 @@ export class ChaptersComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('result is: ', result);
       chapterData = result;
-      console.log(chapterData);
-      chapters.push;
-      localStorage.setItem('chapters', JSON.stringify(chapters));
+      //chapters.push(chapterData);
+      //localStorage.setItem('chapters', JSON.stringify(chapters));
       this.ngOnInit();
     });
   }
 
   edit(id) {
+    console.log(id);
+  }
+
+  onRowClicked(id){
     console.log(id);
   }
 

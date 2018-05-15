@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { saveAs } from 'file-saver';
 
 import { Project } from './project';
+import { Chapter } from './chapter';
 
 @Injectable()
 export class ProjectStoreService {
@@ -51,10 +52,14 @@ export class ProjectStoreService {
         localStorage.setItem('projects', JSON.stringify({ projects: projects }));
     }
 
+    private setLocalStorageChapters(chapters: Chapter[]): void {
+        localStorage.setItem('chapters', JSON.stringify({ chapters: chapters }));
+    }
+
     writeProjectData(tag) {
         const project = this.getSingle(tag);
         localStorage.setItem('baseInfo', JSON.stringify({ title: project.title, tag: project.tag, description: project.description }));
-        localStorage.setItem('chapters', JSON.stringify({ chapters: project.chapters }));
+        this.setLocalStorageChapters(project.chapters);
     }
 
     clearProjectData() {
