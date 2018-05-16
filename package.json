@@ -10,6 +10,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "electron": "npm run build-electron && ./node_modules/.bin/electron dist/",
+    "runElectron": "./node_modules/.bin/electron dist/",
     "build-electron": "ng build --base-href . && cp src/electron/* dist/",
     "packageLinux": "npm run build-electron && electron-packager . the-novelist --overwrite --asar=true --platform=linux --arch=x64 --prune=true --out=release-builds",
     "packageWindows": "npm run build-electron && electron-packager . the-novelist --overwrite --asar=true --platform=win32 --arch=ia32 --prune=true --out=release-builds",
