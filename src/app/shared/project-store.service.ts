@@ -52,14 +52,10 @@ export class ProjectStoreService {
         localStorage.setItem('projects', JSON.stringify({ projects: projects }));
     }
 
-    private setLocalStorageChapters(chapters: Chapter[]): void {
-        localStorage.setItem('chapters', JSON.stringify({ chapters: chapters }));
-    }
-
     writeProjectData(tag) {
         const project = this.getSingle(tag);
         localStorage.setItem('baseInfo', JSON.stringify({ title: project.title, tag: project.tag, description: project.description }));
-        this.setLocalStorageChapters(project.chapters);
+        localStorage.setItem('singleProject', JSON.stringify({ project: project }));
     }
 
     clearProjectData() {
@@ -71,6 +67,6 @@ export class ProjectStoreService {
         project.description = baseInfo.description;
         project.chapters = chapters;*/
         localStorage.setItem('baseInfo', '');
-        localStorage.setItem('chapters', '');
+        localStorage.setItem('singleProject', '');
     }
 }

@@ -23,9 +23,10 @@ export class ChaptersComponent implements OnInit {
     this.chapters = this.getAll();
   }
 
-  public getAll(): Chapter[] {
-    const localStorageItem = JSON.parse(localStorage.getItem('chapters'));
-    return localStorageItem == null ? [] : localStorageItem.chapters;
+  getAll(): Chapter[] {
+    const project = localStorage.getItem('singleProject');
+    const data = JSON.parse(project);
+    return data.chapters;
   }
 
   createChapter(): void {
@@ -41,8 +42,8 @@ export class ChaptersComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('result is: ', result);
       chapterData = result;
-      //chapters.push(chapterData);
-      //localStorage.setItem('chapters', JSON.stringify(chapters));
+      // chapters.push(chapterData);
+      // localStorage.setItem('chapters', JSON.stringify(chapters));
       this.ngOnInit();
     });
   }
