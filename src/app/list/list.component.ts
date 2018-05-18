@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectStoreService } from '../shared/project-store.service';
 import { Project } from '../shared/project';
-import { MatMenuTrigger, MatDialog, MatTableDataSource } from '@angular/material';
+import { MatMenuTrigger, MatDialog, MatTableDataSource, MatSnackBar } from '@angular/material';
 import { ProjectFormComponent } from '../forms/project-form/project-form.component';
 
 @Component({
@@ -18,7 +18,7 @@ export class ListComponent implements OnInit {
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
 
-  constructor(private ps: ProjectStoreService, private router: Router, public dialog: MatDialog) { }
+  constructor(private ps: ProjectStoreService, private router: Router, public dialog: MatDialog, public snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.projects = this.ps.getAll();
@@ -43,14 +43,15 @@ export class ListComponent implements OnInit {
       projectData = result;
       this.ps.create(projectData);
       this.ngOnInit();
+      this.snackBar.open('Project ' + result.tag + ' created!', '');
     });
   }
 
   edit(tag) {
     console.log('project edited: ', tag);
 
-    let project = this.ps.getSingle(tag);
-    let projectData = this.ps.getSingle(tag);
+    const project = this.ps.getSingle(tag);
+    const projectData = this.ps.getSingle(tag);
 
     const dialogRef = this.dialog.open(ProjectFormComponent, {
       width: '250px',
@@ -65,7 +66,8 @@ export class ListComponent implements OnInit {
       this.ps.deleteProject(project.tag);
       this.ps.create(projectData);
       this.ngOnInit();
-    })
+      this.snackBar.open('Project ' + result.tag + ' edited!', '');
+    });
   }
 
   delete(tag) {
