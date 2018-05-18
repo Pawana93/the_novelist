@@ -55,7 +55,7 @@ export class ProjectStoreService {
     writeProjectData(tag) {
         const project = this.getSingle(tag);
         localStorage.setItem('baseInfo', JSON.stringify({ title: project.title, tag: project.tag, description: project.description }));
-        localStorage.setItem('singleProject', JSON.stringify({ project: project }));
+        localStorage.setItem('singleProject', JSON.stringify({ project }));
     }
 
     clearProjectData() {

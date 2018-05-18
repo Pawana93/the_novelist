@@ -26,7 +26,7 @@ export class ChaptersComponent implements OnInit {
   getAll(): Chapter[] {
     const project = localStorage.getItem('singleProject');
     const data = JSON.parse(project);
-    return data.chapters;
+    return data.project.chapters;
   }
 
   createChapter(): void {
