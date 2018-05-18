@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjectStoreService } from '../shared/project-store.service';
 import { Project } from '../shared/project';
-import { MatMenuTrigger, MatDialog, MatTableDataSource, MatSnackBar } from '@angular/material';
+import { MatMenuTrigger, MatDialog, MatTableDataSource, MatSnackBar, MatSort } from '@angular/material';
 import { ProjectFormComponent } from '../forms/project-form/project-form.component';
 
 @Component({
@@ -17,6 +17,7 @@ export class ListComponent implements OnInit {
   dataSource = this.projects;
 
   @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private ps: ProjectStoreService, private router: Router, public dialog: MatDialog, public snackBar: MatSnackBar) { }
 

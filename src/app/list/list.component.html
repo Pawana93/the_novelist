@@ -1,19 +1,19 @@
-<mat-table #table [dataSource]="projects">
+<mat-table #table [dataSource]="projects" matSort>
 
   <!-- Tag Column -->
   <ng-container matColumnDef="tag">
-    <mat-header-cell *matHeaderCellDef> Tag </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Tag </mat-header-cell>
     <mat-cell *matCellDef="let project"> {{project.tag}} </mat-cell>
   </ng-container>
 
   <!-- Project Column -->
   <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
     <mat-cell *matCellDef="let project"> {{project.title }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="description">
-    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
     <mat-cell *matCellDef="let project"> {{project.description }} </mat-cell>
   </ng-container>
 
