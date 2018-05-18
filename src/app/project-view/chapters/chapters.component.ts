@@ -37,13 +37,16 @@ export class ChaptersComponent implements OnInit {
       data: {id: '', title: '' }
     });
 
-    let chapterData = '';
+    let chapterData: Chapter;
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('result is: ', result);
       chapterData = result;
-      // chapters.push(chapterData);
-      // localStorage.setItem('chapters', JSON.stringify(chapters));
+      chapters.push(chapterData);
+      const project = JSON.parse(localStorage.getItem('singleProject'));
+      const projectNew = project.project;
+      projectNew.chapters = this.chapters;
+      localStorage.setItem('singleProject', JSON.stringify({ project: projectNew }));
       this.ngOnInit();
     });
   }
